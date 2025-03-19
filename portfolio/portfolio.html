@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biruk Belete - Video Editor & Translator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            /* Black background */
+            color: #fff;
+            /* White text */
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #f1eeeecc, #524e50bd);
+            /* Dark blue background */
+            color: #fff;
+            /* White text */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: rgba(255, 255, 255, 0.651);
+            box-shadow: 0 0 5px #ffffffd2, -5px 0 20px rgba(255, 0, 255, .7), 5px 0 20px rgba(0, 255, 255, .7);
+            border-radius: 40px;
+            text-shadow: 0 0 5px #ffffff77, -5px 0 20px rgba(255, 0, 255, .7), 5px 0 20px rgba(0, 255, 255, .7);
+            background: #fff;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #fff;
+            border-radius: 15px;
+
+            padding: 5px 0;
+            margin-bottom: 29px;
+
+            text-shadow: 0 0 5px #ffffff77, -5px 0 20px rgba(255, 0, 255, .7), 5px 0 20px rgba(0, 255, 255, .7);
+
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.6;
+        }
+
+        nav ul li a:hover {
+
+            color: rgba(255, 255, 255, 0.651);
+            background: #fff;
+            font-weight: bold;
+            box-shadow: 0 0 5px #ffffff77, -5px 0 20px rgba(179, 108, 179, 0.7), 5px 0 20px rgba(171, 233, 233, 0.7);
+            color: #000;
+            transition: 0.5s;
+            border-radius: 10px;
+            padding: 4px 4px;
+            opacity: 1;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 40px 0;
+            background: #222;
+            /* Dark gray background for sections */
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            color: #00bfff;
+            /* Bright blue for section headings */
+            border-bottom: 2px solid #00bfff;
+            padding-bottom: 10px;
+        }
+
+        .project {
+            margin-bottom: 20px;
+        }
+
+        .project h4 {
+            color: #00bfff;
+            /* Bright blue for project titles */
+        }
+
+        blockquote {
+
+            background-image: linear-gradient(60deg, #9b5fc546, #8a95dfd3);
+            /* Darker gray background for testimonials */
+            border-left: 7px solid #00bfff;
+            /* Bright blue border */
+            padding: 10px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 20px;
+
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            background: #112d49b4;
+            /* Button background color */
+            color: #fff;
+            /* Button text color */
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background: #fff;
+            box-shadow: 0 0 5px #ffffff77, -5px 0 20px rgba(255, 0, 255, .7), 5px 0 20px rgba(0, 255, 255, .7);
+            color: #000;
+            transition: 0.7s;
+            border-radius: 20px;
+            /* Darker blue on hover */
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            margin-bottom: 15px;
+            background: #444;
+            transition: 1s;
+
+            /* Dark background for input fields */
+            color: #fff;
+            /* White text for input fields */
+        }
+
+        form input::placeholder,
+        form textarea::placeholder {
+            color: #bbb;
+            /* Light gray placeholder text */
+        }
+
+        form button {
+            background: #005f99;
+            /* Button background color */
+            color: #fff;
+            /* Button text color */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #fff;
+            box-shadow: 0 0 45px #ffffff77, -5px 0 20px rgba(255, 0, 255, .7), 5px 0 20px rgba(0, 255, 255, .7);
+            color: #000;
+            transition: 0.7s;
+            font-size: 1rem;
+            /* Darker blue on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(60deg, #dfd6e6d2, #65687af3);
+            /* Dark blue background */
+            color: #383a38f0;
+            /* White text */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Biruk Belete</h1>
+            <p>Experienced Video Editor & Professional language Translator</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+    <div
+        style="display: flex;justify-content: center;margin: 40px 0;padding: 20px 0;flex-direction: column;align-items: center;">
+        <div style="width: 300px;height: 300px;border-radius: 150px; box-shadow: 0 0 5px #ffffffd2, -5px 0 20px rgba(255, 0, 255, .7), 5px 0 20px rgba(0, 255, 255, .7);
+           ">
+            <img src="me.jfif" alt="" style="width: 300px;height: 300px;border-radius: 150px;">
+        </div>
+        <h1 style="font-weight: bold; text-shadow: 0 0 5px #ffffff77, -5px 0 20px rgba(247, 33, 247, 0.925), 5px 0 20px rgba(21, 248, 248, 0.959);
+margin-top: 40px;">Biruk Belete</h1>
+    </div>
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p style="line-height: 2;">Hello! I’m Biruk Belete, a dedicated video editor and translator with over 3
+                years of experience in
+                the industry. My passion for storytelling drives my work, whether I'm crafting engaging videos or
+                translating content to connect with diverse audiences.
+
+                As a video editor, I specialize in creating promotional
+                content, documentaries, short videos, and utilizing software like Capcut, Adobe
+                Premiere Pro, Final Cut Pro. I excel at transforming raw footage into compelling narratives that
+                resonate with viewers.
+
+                In addition to video editing, I am fluent in Amharic, English, and Spanish and have worked on
+                various
+                translation projects, ensuring the original message and tone are preserved. My background in
+                translation has equipped me with the skills to deliver
+                high-quality translations.
+
+                I believe in the power of visual storytelling and language to connect people. If you’re looking for
+                a passionate video editor or translator to bring your vision to life, I’d love to collaborate!
+
+            </p>
+        </div>
+    </section>
+
+    <section id="work" class="section">
+        <div class="container">
+            <h2>My Works</h2>
+            <h3>Video Editing Samples</h3>
+            <div class="project">
+                <h4>Project Title 1</h4>
+                <p>Description: A promotional video for [Client/Project Name]. I was responsible for editing the
+                    footage, adding effects, and ensuring a cohesive narrative.</p>
+                <a href="link-to-video-1" target="_blank" class="button">Watch Video</a>
+            </div>
+            <div class="project">
+                <h4>Project Title 2</h4>
+                <p>Description: A documentary short about [Topic]. My role included editing interviews and creating a
+                    compelling story arc.</p>
+                <a href="link-to-video-2" target="_blank" class="button">Watch Video</a>
+            </div>
+
+            <h3>Translation Samples</h3>
+            <div class="project">
+                <h4>Translation Project 1</h4>
+                <p>Description: Translated subtitles for [Video Title]. Ensured accuracy and cultural relevance in the
+                    translation.</p>
+                <a href="link-to-translation-1" target="_blank" class="button">View Translation</a>
+            </div>
+            <div class="project">
+                <h4>Translation Project 2</h4>
+                <p>Description: Translated marketing materials for [Client Name]. Focused on maintaining brand voice and
+                    messaging.</p>
+                <a href="link-to-translation-2" target="_blank" class="button">View Translation</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <blockquote>
+                <p>" Biruk did an amazing job on our promotional video! His attention to detail and creativity made a
+                    huge difference. " - Client Name</p>
+            </blockquote>
+            <blockquote>
+                <p>" The translations were spot on! Biruk understood the nuances of our brand and delivered high-quality
+                    work. " - Client Name</p>
+            </blockquote>
+            <blockquote>
+                <p>" Working with Biruk was a fantastic experience. He met all deadlines and exceeded our expectations.
+                    "
+                    - Client Name 3</p>
+            </blockquote>
+            <blockquote>
+                <p>" Biruk's video editing skills transformed our raw footage into a compelling story. Highly recommend!
+                    "
+                    - Client Name 4</p>
+            </blockquote>
+            <blockquote>
+                <p>" The quality of the translations was exceptional. Biruk's work helped us reach a wider audience. " -
+                    Client Name 5</p>
+            </blockquote>
+            <blockquote>
+                <p>" Biruk is a true professional. His ability to adapt to our needs made the project a success. " -
+                    Client Name 6</p>
+            </blockquote>
+            <blockquote>
+                <p>" I was impressed by Biruk's creativity and technical skills. He brought our vision to life! " -
+                    Client
+                    Name 7</p>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="resume" class="section">
+        <div class="container">
+            <h2>Resume</h2>
+            <p><a href="Biruk Belete - Resume.pdf" target="_blank" class="button">Download My Resume</a></p>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you’d like to discuss a project or collaboration, feel free to reach out!</p>
+            <form action="mailto:birukbelete563@gmail.com" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Biruk Belete. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
